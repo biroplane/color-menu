@@ -1,5 +1,9 @@
 export default defineAppConfig({
   config: {
-    logo: "/logo.svg"
+    logo: "/logo.svg",
+
+    socialLinks: {
+      "key-126": ""
+    }
   }
 })
