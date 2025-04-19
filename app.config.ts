@@ -11,4 +11,15 @@ export default defineAppConfig({
       { name: 'Twitter', url: 'https://twitter.com/your-handle' },
     ],
   },
+
+  config: {
+    title: 'Banana',
+    description: 'Peel the vibe',
+  },
+
+  theme: {
+    logo: '/logo.svg',
+    primaryColor: '#FFDA34',
+    secondaryColor: '#522F2D',
+  },
 })
