@@ -5,7 +5,7 @@ export default defineNuxtSchema({
     config: group({
       title: 'Configurazione',
       description: 'Personalizza il tuo sito',
-      icon: '',
+      icon: 'i-mdi-gear',
       fields: {
         title: field({
           type: 'string',
@@ -14,16 +14,9 @@ export default defineNuxtSchema({
         }),
         description: field({
           type: 'string',
-          title: 'Titolo del tuo sito',
+          title: 'Pay off',
           default: 'Peel the vibe',
         }),
-      },
-    }),
-    theme: group({
-      title: 'Tema',
-      description: 'Personalizza il tuo sito',
-      icon: '',
-      fields: {
         logo: field({
           type: 'media',
           title: 'Logo',
@@ -40,7 +33,7 @@ export default defineNuxtSchema({
           default: '#522F2D',
         }),
         socialLinks: field({
-          type: 'array',
+          type: 'object',
           title: 'Link social',
           default: [
             { name: 'GitHub', url: 'YYYYYYYYYYYYYYYYYYYYYYYYYYY' },
