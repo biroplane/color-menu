@@ -12,6 +12,15 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@vueuse/nuxt',
   ],
+  fonts: {
+    provider: 'google',
+    families: [
+      { name: 'Bebas Neue', provider: 'google' },
+      { name: 'Inter', provider: 'google' },
+      { name: 'Six Cap', provider: 'google' },
+    ],
+
+  },
   experimental: {
     viewTransition: true,
   },
