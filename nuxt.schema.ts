@@ -35,10 +35,7 @@ export default defineNuxtSchema({
         socialLinks: field({
           type: 'object',
           title: 'Link social',
-          default: [
-            { name: 'GitHub', url: 'YYYYYYYYYYYYYYYYYYYYYYYYYYY' },
-            { name: 'Twitter', url: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' },
-          ],
+
         }),
       },
     }),
