@@ -1,5 +1,5 @@
 <template>
   <main>
-    Categories {{ $route.params.slug }}
+    Categories {{ $route.params.slug }} is dislayed
   </main>
 </template>
