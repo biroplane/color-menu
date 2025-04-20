@@ -33,9 +33,9 @@ export default defineNuxtSchema({
           default: '#522F2D',
         }),
         socialLinks: field({
-          type: 'object',
+          type: 'array',
           title: 'Link social',
-
+          default: [],
         }),
       },
     }),
