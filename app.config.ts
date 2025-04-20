@@ -1,9 +1,11 @@
 export default defineAppConfig({
   config: {
-    logo: "/logo.svg",
+    title: 'Banana',
+    description: 'Peel the vibe',
+    logo: '/logo.svg',
 
     socialLinks: {
-      "key-126": ""
-    }
-  }
+      github: 'pippo',
+    },
+  },
 })
