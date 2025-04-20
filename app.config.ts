@@ -4,8 +4,6 @@ export default defineAppConfig({
     description: 'Peel the vibe',
     logo: '/logo.svg',
 
-    socialLinks: {
-      github: 'pippo',
-    },
+    socialLinks: [],
   },
 })
