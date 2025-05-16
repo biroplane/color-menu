@@ -1,0 +1,13 @@
+media:
+  input: ./public
+  output: /
+content:
+  - name: products
+    label: Products
+    type: collection
+    path: content/products
+    fields:
+      - {name: title, type: string, label: Title}
+      - {name: body, type: rich-text, label: Body}
+      - {name: image, type: image, label: Image}
+    
