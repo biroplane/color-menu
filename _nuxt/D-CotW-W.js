@@ -1,0 +1,1 @@
+import{c as s,t as o,Y as r,i as a}from"./DYa-_yP9.js";import{_ as t}from"./DlAUqK2U.js";const n={};function i(e,c){return a(),s("main",null," Categories "+o((e._.provides[r]||e.$route).params.slug)+" is dislayed ",1)}const m=t(n,[["render",i]]);export{m as default};
