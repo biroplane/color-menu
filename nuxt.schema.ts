@@ -37,6 +37,10 @@ export default defineNuxtSchema({
           title: 'Link social',
           default: [],
         }),
+        links: field({
+          type: 'object',
+          title: 'Another Link'
+        }),
       },
     }),
   },

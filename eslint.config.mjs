@@ -24,6 +24,7 @@ export default antfu({
 
   rules: {
     'no-console': 'off',
+    'ts/explicit-function-return-type': 'off',
   },
 
   // `.eslintignore` is no longer supported in Flat config, use `ignores` instead

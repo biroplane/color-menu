@@ -1,11 +1,12 @@
 ---
-title: Desserts
-slug: desserts
+title: "Dessert"
+slug: "desserts"
 featured: false
 visible: true
-images: /img/kobby-mendez-idtwdkt2j2o-unsplash.webp
-description: test
-order: 7
-bgColor: "#3AFF89"
-textColor: "white"
+images: ["/images/categories/desserts.jpg"]
+order: 3
+bgColor: "#FBCFE8"
+textColor: "#9D174D"
 ---
+
+Dolci artigianali preparati con amore per concludere il pasto con un tocco di dolcezza.

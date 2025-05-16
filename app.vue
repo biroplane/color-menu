@@ -1,13 +1,30 @@
 <script setup lant="ts">
-const config = useAppConfig()
+const { config } = useAppConfig()
 
-console.log('COLORS', config)
+const primary = computed(() => config.primaryColor)
+console.log('COLORS', primary.value)
 </script>
 
 <template>
-  <UApp>
+  <div class="" :style="{ backgroundColor: primary }">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-  </UApp>
+  </div>
 </template>
+
+<style>
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
+
+body {
+  background-color: v-bind(primary) !important;
+}
+</style>

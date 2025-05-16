@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@nuxt/ui',
     '@vueuse/nuxt',
   ],
   fonts: {
@@ -27,7 +26,7 @@ export default defineNuxtConfig({
   content: {
     preview: {
       dev: true,
-    }
+    },
   },
   vite: {
     plugins: [

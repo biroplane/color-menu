@@ -1,6 +1,11 @@
 <script setup>
+const { config } = useAppConfig()
+const menu = useMenu()
 const { data: categories } = await useAsyncData('categories', () => queryCollection('categories').order('order', 'ASC').all())
-console.log('Categories ', categories.value)
+const cats = await menu.loadCategories()
+console.log('Categories ', cats.value)
+
+const { primaryColor, secondaryColor } = config
 </script>
 
 <template>
@@ -11,13 +16,13 @@ console.log('Categories ', categories.value)
           <div
             class="p-4 transition-transform hover:scale-105"
             :style="{
-              backgroundColor: item.bgColor,
+              backgroundColor: secondaryColor,
               viewTransitionName: `item-background-${item.slug}`,
             }"
           >
             <h2
-              class="text-4xl font-thin uppercase text-white"
-              :style="{ viewTransitionName: `item-title-${item.slug}` }"
+              class="text-2xl font-thin uppercase "
+              :style="{ viewTransitionName: `item-title-${item.slug}`, color: primaryColor }"
             >
               {{ item.title }}
             </h2>

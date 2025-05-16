@@ -1,4 +1,6 @@
 <script setup>
+const { config } = useAppConfig()
+const { primaryColor, secondaryColor } = config
 const route = useRoute()
 const itemId = route.params.id
 
@@ -13,7 +15,7 @@ const { data: products } = await useAsyncData(`[products_${itemId}]`, () => {
     .where('category', '=', itemId)
     .all()
 })
-console.log('item', item.value)
+console.log('item', products.value)
 const openItem = ref(-1)
 const items = ref()
 
@@ -30,31 +32,32 @@ useHead({
     <div
       class="fixed inset-0 "
       :style="{
-        backgroundColor: item?.bgColor,
+        backgroundColor: secondaryColor, //item?.bgColor,
         viewTransitionName: `item-background-${item?.slug}`,
       }"
     />
 
     <div class="relative  min-h-screen">
-      <div class="container mx-auto p-2">
+      <div class="container mx-auto p-2 mt-6">
         <NuxtLink to="/" class="text-white mb-6 inline-block hover:underline">
           &larr; Back to List
         </NuxtLink>
 
         <div class=" bg-opacity-10 backdrop-blur-sm rounded-lg p-4 md:p-8">
           <h1
-            class="text-4xl font-thin uppercase text-white mb-4"
-            :style="{ viewTransitionName: `item-title-${item?.slug}` }"
+            class="text-4xl font-thin uppercase white mb-4 sticky top-8 block"
+            :style="{ viewTransitionName: `item-title-${item?.slug}`, color: primaryColor, backgroundColor: secondaryColor }"
           >
             {{ item?.title }}
           </h1>
-          <div class=""><ContentRenderer :value="item.body" /></div>
-          
+          <div class="font-thin" :style="{ color: primaryColor }">
+            <ContentRenderer :value="item.body" />
+          </div>
 
           <div class="mt-4 text-white">
-            <ol class="flex flex-col gap-4" ref="items">
+            <ol ref="items" class="flex flex-col gap-4">
               <li v-for="(product, p) in products" :key="p" class="font-thin  text-3xl">
-                <ProductListItem  :product :is-open="openItem === p" @open="openItem = p" />
+                <ProductListItem :product :is-open="openItem === p" @open="openItem = p" />
               </li>
             </ol>
           </div>
