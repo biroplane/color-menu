@@ -6,7 +6,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~~/assets/css/main.css', '~~/assets/css/view-transition.css'],
   modules: [
-    '@nuxt/content',
     '@nuxt/fonts',
     '@nuxt/icon',
     '@vueuse/nuxt',
