@@ -12,12 +12,13 @@ export default defineContentConfig({
         visible: z.boolean(),
         price: z.number().min(0, 'il prezzo deve essere maggiore di Zero'),
         variants: z.object({ variation: z.string(), price: z.number() }),
-        tags:z.string().array(),
+        tags: z.string().array(),
         category: z.string(),
         alergens: z.string().array(),
         images: z.string(),
         order: z.number(),
       }),
+
     }),
     categories: defineCollection({
       type: 'data',
