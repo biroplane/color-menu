@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.11.1",
@@ -28,7 +29,14 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.12.0",
+    "@nuxtjs/prismic": "^4.1.0",
+    "@prismicio/migrate": "^0.0.2",
+    "@slicemachine/adapter-nuxt": "^0.3.77",
     "@types/lodash": "^4.17.16",
-    "eslint": "^9.24.0"
+    "@types/papaparse": "^5.3.16",
+    "dotenv": "^16.5.0",
+    "eslint": "^9.24.0",
+    "papaparse": "^5.5.2",
+    "slice-machine-ui": "^2.16.0"
   }
 }
