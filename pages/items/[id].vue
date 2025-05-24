@@ -1,39 +1,38 @@
-<script setup>
+<script lang="ts" setup>
+import { filter } from '@prismicio/client'
+
 const { config } = useAppConfig()
 const { primaryColor, secondaryColor } = config
 const route = useRoute()
-const itemId = route.params.id
-
+const itemId = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id
+const prismic = usePrismic()
 // In a real app, this would come from an API or store
 
-const { data: item } = await useAsyncData(`[category_${itemId}]`, () => {
-  return queryCollection('categories').where('slug', '=', itemId).first()
-})
-console.log('WHERE CLAUSE', itemId)
+const { data: category, error } = await useAsyncData(`[category_${itemId}]`, () => prismic.client.getByUID('category', itemId))
+
 const { data: products } = await useAsyncData(`[products_${itemId}]`, () => {
-  return queryCollection('product')
-    .where('category', '=', itemId)
-    .all()
+  const categoryId = category.value?.id
+  return prismic.client.getAllByType('product', {
+    filters: categoryId ? [filter.any('my.product.category', [categoryId])] : [],
+  })
 })
-console.log('item', products.value)
+console.log('item', itemId, category.value, error.value)
 const openItem = ref(-1)
 const items = ref()
 
 // onClickOutside(items, () => openItem.value = -1)
 useHead({
-  title: item.title,
+  title: category.value?.data?.title,
 })
 </script>
 
 <template>
-  <div>
-    <!-- This is the expanding background element -->
-
+<div>
     <div
       class="fixed inset-0 "
       :style="{
-        backgroundColor: secondaryColor, //item?.bgColor,
-        viewTransitionName: `item-background-${item?.slug}`,
+        backgroundColor: secondaryColor, //category?.bgColor,
+        viewTransitionName: `item-background-${category?.uid}`,
       }"
     />
 
@@ -46,12 +45,12 @@ useHead({
         <div class=" bg-opacity-10 backdrop-blur-sm rounded-lg p-4 md:p-8">
           <h1
             class="text-4xl font-thin uppercase white mb-4 sticky top-8 block"
-            :style="{ viewTransitionName: `item-title-${item?.slug}`, color: primaryColor, backgroundColor: secondaryColor }"
+            :style="{ viewTransitionName: `item-title-${category?.uid}`, color: primaryColor, backgroundColor: secondaryColor }"
           >
-            {{ item?.title }}
+            {{ category?.data.title }}
           </h1>
           <div class="font-thin" :style="{ color: primaryColor }">
-            <ContentRenderer :value="item.body" />
+            <PrismicRichText :field="category?.data.body" />
           </div>
 
           <div class="mt-4 text-white">

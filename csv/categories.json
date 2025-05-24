@@ -1,0 +1,8 @@
+export interface Category {
+  title:       string;
+  featured:    string;
+  visible:     string;
+  images:      string;
+  description: string;
+  order:       string;
+}
